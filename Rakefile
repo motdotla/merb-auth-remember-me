@@ -4,11 +4,12 @@ require 'rake/gempackagetask'
 require 'merb-core'
 require 'merb-core/tasks/merb'
 
-GEM_NAME = "pn-merb-auth-remember-me"
-GEM_VERSION = "0.0.1"
-AUTHOR = "Surasit Liangpornrattana"
-EMAIL = "punneng@gmail.com"
-HOMEPAGE = "https://github.com/PunNeng/pn-merb-auth-remember-me"
+GEM_NAME = "merb-auth-remember-me"
+GEM_VERSION = "0.1.0"
+AUTHOR = "Jacques Crocker"
+ORIGINAL_AUTHOR = "Surasit Liangpornrattana"
+EMAIL = "merbjedi@gmail.com"
+HOMEPAGE = "https://github.com/merbjedi/merb-auth-remember-me"
 SUMMARY = "Merb plugin that provides remember me for merb-auth-slice-password"
 
 spec = Gem::Specification.new do |s|
@@ -17,15 +18,15 @@ spec = Gem::Specification.new do |s|
   s.version = GEM_VERSION
   s.platform = Gem::Platform::RUBY
   s.has_rdoc = true
-  s.extra_rdoc_files = ["README", "LICENSE", 'TODO']
+  s.extra_rdoc_files = ["README.markdown", "LICENSE", 'TODO']
   s.summary = SUMMARY
   s.description = s.summary
-  s.author = AUTHOR
+  s.authors = [AUTHOR, ORIGINAL_AUTHOR]
   s.email = EMAIL
   s.homepage = HOMEPAGE
-  s.add_dependency('merb', '>= 1.0.3')
+  s.add_dependency('merb-core', '>= 1.0.9')
   s.require_path = 'lib'
-  s.files = %w(LICENSE README Rakefile TODO) + Dir.glob("{lib,spec}/**/*")
+  s.files = %w(LICENSE README.markdown Rakefile TODO) + Dir.glob("{lib,spec}/**/*")
   
 end
 

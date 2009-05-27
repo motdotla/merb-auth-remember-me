@@ -36,7 +36,7 @@ file: config/dependencies.rb
 
 \# add the plugin as a regular dependency
 
-    dependency 'pn-merb-auth-remember-me'
+    dependency 'merb-auth-remember-me'
 
 file: slice/merb-auth-slice-password/app/controllers/sessions.rb or the logout action  
 

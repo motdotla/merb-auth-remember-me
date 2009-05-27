@@ -3,13 +3,13 @@ if defined?(Merb::Plugins)
 
   $:.unshift File.dirname(__FILE__)
 
-  require(File.expand_path(File.dirname(__FILE__) / "pn-merb-auth-remember-me" / "mixins") / "authenticated_user")
-  strategy_path = File.expand_path(File.dirname(__FILE__)) / "pn-merb-auth-remember-me" / "strategies"
+  require(File.expand_path(File.dirname(__FILE__) / "merb-auth-remember-me" / "mixins") / "authenticated_user")
+  strategy_path = File.expand_path(File.dirname(__FILE__)) / "merb-auth-remember-me" / "strategies"
 
   Merb::Authentication.register(:remember_me, strategy_path / "remember_me.rb")
   # require(strategy_path / "remember_me.rb")
   
-  Merb::Plugins.add_rakefiles "pn-merb-auth-remember-me/merbtasks"#, "pn-merb-auth-remember-me/slicetasks", "pn-merb-auth-remember-me/spectasks"
+  Merb::Plugins.add_rakefiles "merb-auth-remember-me/merbtasks"#, "merb-auth-remember-me/slicetasks", "merb-auth-remember-me/spectasks"
 
   # Merb gives you a Merb::Plugins.config hash...feel free to put your stuff in your piece of it
   Merb::Plugins.config[:pn_merb_auth_remember_me] = {
@@ -31,5 +31,5 @@ if defined?(Merb::Plugins)
     end
   end
   
-  Merb::Plugins.add_rakefiles "pn-merb-auth-remember-me/merbtasks"
+  Merb::Plugins.add_rakefiles "merb-auth-remember-me/merbtasks"
 end
