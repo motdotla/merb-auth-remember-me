@@ -1,6 +1,14 @@
 class RememberMe < Merb::Authentication::Strategy
+
+  # Called from #current_user.  Finaly, attempt to login by an expiring token in the cookie.
+  # for the paranoid: we _should_ be storing user_token = hash(cookie_token, request IP)
   def run!
-    login_from_cookie
+    debugger
+    current_user = cookies[:auth_token] && Merb::Authentication.user_class.first(:conditions => ["remember_token = ?", cookies[:auth_token]])
+    if current_user && current_user.remember_token?
+      handle_remember_cookie! false # freshen cookie token (keeping date)
+      current_user
+    end
   end
 
   def current_user
@@ -9,16 +17,6 @@ class RememberMe < Merb::Authentication::Strategy
   
   def current_user=(new_user)
     @current_user = new_user
-  end
-  
-  # Called from #current_user.  Finaly, attempt to login by an expiring token in the cookie.
-  # for the paranoid: we _should_ be storing user_token = hash(cookie_token, request IP)
-  def login_from_cookie
-    current_user = cookies[:auth_token] && Merb::Authentication.user_class.first(:conditions => ["remember_token = ?", cookies[:auth_token]])
-    if current_user && current_user.remember_token?
-      handle_remember_cookie! false # freshen cookie token (keeping date)
-      current_user
-    end
   end
   
   #
