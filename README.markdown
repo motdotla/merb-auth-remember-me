@@ -1,4 +1,4 @@
-### PnMerbAuthRememberMe
+### MerbAuthRememberMe
 
 This plugin provides a remember me function based on MerbAuth. Most of codes are from [RestfulAuthentication on Rails](http://github.com/technoweenie/restful-authentication/tree/master)  
 
@@ -48,4 +48,6 @@ In your unauthenticated.html.erb(Login page)
 
     %input#rememberme{ :name => "remember_me" , :type => "checkbox", :value => "1"}
         Remember Me
+
+Finally in your /merb/merb-auth/strategies.rb add Merb::Authentication.activate!(:remember_me) to activate the strategy plugin.
 
