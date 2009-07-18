@@ -5,7 +5,7 @@ require 'merb-core'
 require 'merb-core/tasks/merb'
 
 GEM_NAME = "merb-auth-remember-me"
-GEM_VERSION = "0.1.2"
+GEM_VERSION = "0.1.3.2"
 AUTHOR = "Jacques Crocker"
 ORIGINAL_AUTHOR = "Surasit Liangpornrattana"
 EMAIL = "merbjedi@gmail.com"
